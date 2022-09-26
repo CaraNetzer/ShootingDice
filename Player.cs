@@ -10,16 +10,16 @@ namespace ShootingDice
         public virtual int Roll()
         {
             // Return a random number between 1 and DiceSize
-            return new Random().Next(DiceSize) + 1;
+            return new Random().Next(1, DiceSize+1);
         }
 
         public virtual void Play(Player other)
         {
             // Call roll for "this" object and for the "other" object
             int myRoll = Roll();
-            int otherRoll = other.Roll();
-
             Console.WriteLine($"{Name} rolls a {myRoll}");
+            
+            int otherRoll = other.Roll();
             Console.WriteLine($"{other.Name} rolls a {otherRoll}");
             if (myRoll > otherRoll)
             {
